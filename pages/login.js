@@ -73,7 +73,6 @@ const Login = () => {
 	const authListener = () => {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				setEmail('');
 				setPassword('');
 				setUser(user);
 			} else {
