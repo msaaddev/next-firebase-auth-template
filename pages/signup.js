@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { getAuth, createUserWithEmailAndPassword } from 'config/firebase';
 
@@ -6,14 +6,17 @@ import { getAuth, createUserWithEmailAndPassword } from 'config/firebase';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 
+// context
+import { AuthContext } from 'components/context/AuthContext';
+
 // stylesheet
 import css from 'styles/Auth.module.css';
 
 const SignUp = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [emailErr, setEmailErr] = useState('');
-	const [passwordErr, setPasswordErr] = useState('');
+	const { email, setEmail } = useContext(AuthContext);
+	const { password, setPassword } = useContext(AuthContext);
+	const { emailErr, setEmailErr } = useContext(AuthContext);
+	const { passwordErr, setPasswordErr } = useContext(AuthContext);
 	const router = useRouter();
 
 	/**

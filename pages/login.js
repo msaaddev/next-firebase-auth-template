@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import {
 	getAuth,
@@ -10,27 +10,20 @@ import {
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 
+// context
+import { AuthContext } from 'components/context/AuthContext';
+
 // stylesheet
 import css from 'styles/Auth.module.css';
 
 const Login = () => {
-	const [user, setUser] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [emailErr, setEmailErr] = useState('');
-	const [passwordErr, setPasswordErr] = useState('');
+	const { user, setUser } = useContext(AuthContext);
+	const { email, setEmail } = useContext(AuthContext);
+	const { password, setPassword } = useContext(AuthContext);
+	const { emailErr, setEmailErr } = useContext(AuthContext);
+	const { passwordErr, setPasswordErr } = useContext(AuthContext);
 	const router = useRouter();
 	const auth = getAuth();
-
-	/**
-	 *
-	 *
-	 * reset values ofo inputs to empty string
-	 */
-	const clearInput = () => {
-		setEmail('');
-		setPassword('');
-	};
 
 	/**
 	 *
@@ -52,7 +45,7 @@ const Login = () => {
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then(() => {
-				clearInput();
+				setPassword('');
 				router.push('/');
 			})
 			.catch((err) => {
@@ -80,7 +73,8 @@ const Login = () => {
 	const authListener = () => {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				clearInput();
+				setEmail('');
+				setPassword('');
 				setUser(user);
 			} else {
 				setUser('');
