@@ -7,6 +7,8 @@ import css from 'styles/Auth.module.css';
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [emailErr, setEmailErr] = useState('');
+	const [passwordErr, setPasswordErr] = useState('');
 
 	return (
 		<main className={css.container}>
@@ -20,6 +22,7 @@ const Login = () => {
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 				/>
+				{emailErr !== '' && <p className={css.err}>{emailErr}</p>}
 			</div>
 			<div className={css.wrapper}>
 				<label htmlFor="password">Password</label>
@@ -30,6 +33,7 @@ const Login = () => {
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 				/>
+				{passwordErr !== '' && <p className={css.err}>{passwordErr}</p>}
 			</div>
 			<div className={css.wrapper}>
 				<button className={css.button}>Login</button>
