@@ -52,7 +52,7 @@ NEXT_PUBLIC_App_Id=YOUR_APP_ID_GOES_HERE
 ![demo](assets/demo.gif)
 ## 👨🏻‍💻 Contributing
 
-Make sure you read the [contributing guidelines](https://github.com/msaaddev/create-next-pwa/blob/master/contributing.md) before opening a PR. If you want something else to **integrate** with the CLI like I have done with tailwind, open an issue in the repository and I will get back to it.
+Make sure you read the [contributing guidelines](https://github.com/msaaddev/next-firebase-auth-template/blob/main/contributing.md) before opening a PR. If you want something else to **integrate** with the CLI like I have done with tailwind, open an issue in the repository and I will get back to it.
 
 ## ⚡️ Other Projects
 
