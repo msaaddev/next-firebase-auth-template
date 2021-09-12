@@ -1,0 +1,31 @@
+/* Input Component Styles */
+
+.wrapper {
+	margin-bottom: 20px;
+	width: 400px;
+}
+
+.wrapper label {
+	padding-bottom: 5px;
+	font-weight: 500;
+}
+
+.wrapper input {
+	width: 100%;
+	border: none;
+	outline: none;
+	font-size: 19px;
+	padding: 10px;
+	background: rgba(225, 237, 248, 0.6);
+	letter-spacing: 1px;
+	font-weight: 200;
+	font-size: 14px;
+}
+
+.err {
+	padding: 0;
+	margin: 2px 0;
+	font-size: 14px;
+	font-weight: 500;
+	color: red;
+}

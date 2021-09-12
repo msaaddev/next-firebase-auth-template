@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { getAuth, createUserWithEmailAndPassword } from 'config/firebase';
 
+// components
+import Input from 'components/common/Input';
+import Button from 'components/common/Button';
+
 // stylesheet
 import css from 'styles/Auth.module.css';
 
@@ -64,34 +68,25 @@ const SignUp = () => {
 
 	return (
 		<main className={css.container}>
-			<div className={css.wrapper}>
-				<label htmlFor="email">Email</label>
-				<br />
-				<input
-					type="text"
-					autoFocus={true}
-					required
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-				{emailErr !== '' && <p className={css.err}>{emailErr}</p>}
-			</div>
-			<div className={css.wrapper}>
-				<label htmlFor="password">Password</label>
-				<br />
-				<input
-					type="password"
-					required
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				/>
-				{passwordErr !== '' && <p className={css.err}>{passwordErr}</p>}
-			</div>
-			<div className={css.wrapper}>
-				<button className={css.button} onClick={handleSignUp}>
-					Sign Up
-				</button>
-			</div>
+			<Input
+				htmlFor="email"
+				label="Email"
+				type="text"
+				autoFocus={true}
+				value={email}
+				onChange={setEmail}
+				err={emailErr}
+			/>
+			<Input
+				htmlFor="password"
+				label="Password"
+				type="password"
+				autoFocus={false}
+				value={password}
+				onChange={setPassword}
+				err={passwordErr}
+			/>
+			<Button label="Sign Up" onClick={handleSignUp} />
 		</main>
 	);
 };
