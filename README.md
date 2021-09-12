@@ -44,7 +44,7 @@ NEXT_PUBLIC_Message_Sender_Id=YOUR_MESSAGE_SENDER_ID_GOES_HERE
 NEXT_PUBLIC_App_Id=YOUR_APP_ID_GOES_HERE
 ```
 
-4. Replace the values above with the keys you when you set up the web app. (Firebase Setup #2)
+4. Replace the values above with the keys you got when you set up the web app. (Firebase Setup #2)
 5. Now open your terminal and type in `npm run dev` to start the server.
 
 ## 🎩 Preview
