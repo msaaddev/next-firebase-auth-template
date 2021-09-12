@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import fire from 'config/firebase';
+import { getAuth, createUserWithEmailAndPassword } from 'config/firebase';
 
 // stylesheet
 import css from 'styles/Auth.module.css';
@@ -15,10 +15,51 @@ const SignUp = () => {
 	/**
 	 *
 	 *
+	 * reset values ofo inputs to empty string
+	 */
+	const clearInput = () => {
+		setEmail('');
+		setPassword('');
+	};
+
+	/**
+	 *
+	 *
+	 * reset values of errors to empty string
+	 */
+	const clearErrs = () => {
+		setEmailErr('');
+		setPasswordErr('');
+	};
+
+	/**
+	 *
+	 *
 	 * sign up user if everything checks out
 	 */
 	const handleSignUp = () => {
-		router.push('/login');
+		clearErrs();
+
+		const auth = getAuth();
+		createUserWithEmailAndPassword(auth, email, password)
+			.then(() => {
+				clearInput();
+				router.push('/login');
+			})
+			.catch((err) => {
+				const { code, message } = err;
+
+				if (
+					code === 'auth/email-already-in-use' ||
+					code === 'auth/invalid-email'
+				) {
+					setEmailErr(message);
+				}
+
+				if (code === 'auth/weak-password') {
+					setPasswordErr(message);
+				}
+			});
 	};
 
 	return (

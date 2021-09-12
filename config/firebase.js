@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import 'firebase/auth';
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	onAuthStateChanged
+} from 'firebase/auth';
 
 const config = {
 	apiKey: `${process.env.NEXT_PUBLIC_Firebase_API_Key}`,
@@ -10,6 +15,11 @@ const config = {
 	appId: `${process.env.NEXT_PUBLIC_App_Id}`
 };
 
-const fire = initializeApp(config);
+initializeApp(config);
 
-export default fire;
+export {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	onAuthStateChanged
+};
