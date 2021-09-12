@@ -1,1 +1,6 @@
-## Change across different version of [project name]
+## Change across different version
+
+### v0.1.0
+
+- PWA implemented
+- Firebase Auth Implemented
